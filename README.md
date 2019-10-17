@@ -10,6 +10,16 @@ npm install
 npm run serve
 ```
 
+### Compiles api
+```
+npm run api
+```
+
+### Compiles site e api
+```
+npm run dev
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
