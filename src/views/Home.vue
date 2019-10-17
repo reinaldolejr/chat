@@ -1,18 +1,39 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-card class="mx-auto my-12" max-width="374">
+    <v-card-title>{{title}}</v-card-title>
+
+    <v-card-text>
+      <v-row align="center" class="mx-0">
+        <v-text-field label="Nickname" v-model="nickname" maxlength="5" ></v-text-field>
+      </v-row>
+    </v-card-text>
+
+    <v-card-actions>
+      <router-link to="/chat" tag="button" > 
+      <v-btn color="primary" text @click="setNickname(nickname)">{{btnText}}</v-btn>
+      </router-link>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapActions } from "vuex";
 
 export default {
-  name: "home",
-  components: {
-    HelloWorld
+  name: "Home",
+  components: {},
+  data: () => ({
+    title: "CHAT",
+    btnText: "ENTRAR",
+    nickname: ""
+  }),
+  methods: {
+    ...mapActions({
+      setNickname: "chatModule/setNickname",
+    })
+  },
+  mounted() {
+    
   }
 };
 </script>
